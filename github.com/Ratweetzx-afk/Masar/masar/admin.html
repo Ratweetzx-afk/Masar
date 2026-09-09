@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>لوحة تحكم مسار</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-body">
+  <main class="admin-shell">
+    <section id="login-view" class="admin-card">
+      <h1 class="brand__name">لوحة تحكم مسار</h1>
+      <p class="text-muted">أدخل كلمة المرور للمتابعة</p>
+      <form id="login-form">
+        <input id="password-input" type="password" class="search__input" placeholder="كلمة المرور" autocomplete="current-password" required />
+        <button type="submit" class="search__button">دخول</button>
+      </form>
+      <p id="login-error" class="error-text" hidden></p>
+    </section>
+
+    <section id="dashboard-view" class="admin-card" hidden>
+      <div class="admin-header">
+        <h1 class="brand__name">لوحة تحكم مسار</h1>
+        <button id="logout-btn" class="chip">تسجيل خروج</button>
+      </div>
+
+      <h2>تحديث بيانات المطارات يدوياً</h2>
+      <p class="text-muted">محدود بـ 3 مرات لكل مطار يومياً — لاستخدام الطوارئ فقط (مثل يوم تأخيرات كبيرة)، وليس للاستخدام الروتيني، حفاظاً على حصة AeroDataBox الشهرية.</p>
+      <div class="admin-actions" id="refresh-buttons"></div>
+      <p id="refresh-status" class="text-muted"></p>
+
+      <h2>إدارة الإعلان/البانر</h2>
+      <form id="banner-form" class="admin-form">
+        <input type="hidden" id="banner-id" />
+        <label>العنوان <input id="banner-title-input" maxlength="100" required /></label>
+        <label>النص <textarea id="banner-message-input" maxlength="500" required></textarea></label>
+        <label>الرابط (اختياري، يبدأ بـ https://) <input id="banner-link-input" type="url" /></label>
+        <label class="checkbox-label"><input type="checkbox" id="banner-active-input" /> فعّال (يظهر للزوار)</label>
+        <button type="submit" class="search__button">حفظ</button>
+      </form>
+
+      <h3>الإعلانات الحالية</h3>
+      <div id="banner-list"></div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
