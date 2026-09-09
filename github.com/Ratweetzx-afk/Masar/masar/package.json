@@ -1,0 +1,12 @@
+{
+  "name": "masar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "مسار — حالة الرحلات الجوية لمطارات السعودية",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
