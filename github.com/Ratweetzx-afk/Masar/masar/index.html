@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>مسار — حالة الرحلات الجوية لمطارات السعودية</title>
+  <meta name="description" content="تابع حالة رحلات مطارات جدة والرياض والدمام في مكان واحد." />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="banner-slot" class="banner" hidden>
+    <a id="banner-link" href="#" target="_blank" rel="noopener noreferrer" class="banner__link">
+      <strong id="banner-title" class="banner__title"></strong>
+      <span id="banner-message" class="banner__message"></span>
+    </a>
+    <button id="banner-close" class="banner__close" aria-label="إغلاق الإعلان">✕</button>
+  </div>
+
+  <header class="site-header">
+    <div class="brand">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M6 26 L20 22 L20 10 L24 8 L24 21 L40 16 L42 20 L26 26 L26 34 L32 38 L32 41 L24 39 L16 41 L16 38 L22 34 L22 26 Z" fill="currentColor"/>
+      </svg>
+      <div>
+        <h1 class="brand__name">مسار</h1>
+        <p class="brand__tagline">حالة الرحلات الجوية — مطارات السعودية</p>
+      </div>
+    </div>
+
+    <form id="search-form" class="search" role="search">
+      <input
+        id="search-input"
+        class="search__input"
+        type="text"
+        inputmode="text"
+        maxlength="10"
+        placeholder="ابحث برقم الرحلة، مثال: SV101"
+        aria-label="بحث برقم الرحلة"
+        autocomplete="off"
+      />
+      <button type="submit" class="search__button">بحث</button>
+    </form>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="اختر المطار">
+    <button class="tab" role="tab" data-airport="JED" aria-selected="true">جدة <span class="tab__code">JED</span></button>
+    <button class="tab" role="tab" data-airport="RUH" aria-selected="false">الرياض <span class="tab__code">RUH</span></button>
+    <button class="tab" role="tab" data-airport="DMM" aria-selected="false">الدمام <span class="tab__code">DMM</span></button>
+  </nav>
+
+  <main class="board" id="board">
+    <div class="board__meta">
+      <span id="last-updated" class="board__updated">جاري التحميل...</span>
+      <div class="board__filter" role="group" aria-label="فلترة حسب الاتجاه">
+        <button class="chip chip--active" data-direction="All">الكل</button>
+        <button class="chip" data-direction="Departure">المغادرة</button>
+        <button class="chip" data-direction="Arrival">الوصول</button>
+      </div>
+    </div>
+
+    <div id="search-results" class="search-results" hidden></div>
+
+    <div id="flight-list" class="flight-list" aria-live="polite">
+      <p class="board__empty">جاري تحميل بيانات الرحلات...</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>البيانات مُقدَّمة عبر AeroDataBox، وتُحدَّث بشكل دوري وليس لحظياً. راجع وقت آخر تحديث أعلى كل مطار.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
